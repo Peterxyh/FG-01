@@ -12,4 +12,10 @@ Route::group([
 
     $router->get('/', 'HomeController@index');
 
+    $router->resources([
+        '/guess/categorys'  => Guess\CategoryController::class,
+        '/guess/games'      => Guess\GuessController::class,
+        '/guess/teams'      => Guess\TeamsController::class,
+    ]);
+
 });
