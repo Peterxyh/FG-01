@@ -26,4 +26,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * User Join
+     */
+    public function userjoin()
+    {
+        return $this->hasMany('App\Model\Users\UserJoin', 'user_id', 'id');
+    }
 }

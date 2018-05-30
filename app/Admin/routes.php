@@ -16,6 +16,8 @@ Route::group([
         '/guess/categorys'  => Guess\CategoryController::class,
         '/guess/games'      => Guess\GuessController::class,
         '/guess/teams'      => Guess\TeamsController::class,
+        '/users/member'     => Users\UserController::class,
+        '/users/joins'      => Users\UserJoinController::class,
     ]);
 
 });
