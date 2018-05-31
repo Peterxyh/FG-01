@@ -30,4 +30,12 @@ class UserJoin extends Model
     {
         return $this->hasOne('App\Model\Guess\Guess', 'categiry_id', 'id');
     }
+
+    /**
+     * user teams
+     */
+    public function teams()
+    {
+        return $this->belongsTo('App\Model\Guess\Teams', 'teams_id');
+    }
 }

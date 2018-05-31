@@ -29,4 +29,12 @@ class Teams extends Model
     {
         return $this->hasOne('App\Model\Guess\Guess', 'team_id_one', 'id');
     }
+
+    /**
+     * join user
+     */
+    public function joinuser()
+    {
+        return $this->hasMany('App\Model\Users\UserJoin', 'teams_id', 'id');
+    }
 }

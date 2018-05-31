@@ -8,6 +8,7 @@ namespace App\Admin\Controllers\Users;
  */
 
 use App\Http\Controllers\Controller;
+use App\Model\Guess\Teams;
 use App\Model\Users\UserJoin;
 use Encore\Admin\Controllers\ModelForm;
 use Encore\Admin\Facades\Admin;
@@ -98,6 +99,7 @@ class UserJoinController extends Controller
             $grid->users()->email('Email');
             $grid->userguess()->game_name('Game name');
             $grid->odds('ODDS');
+            $grid->teams()->name('Team name');
             $grid->result('Result');
             $grid->amount('Amount');
             $grid->status('Status');
@@ -111,6 +113,10 @@ class UserJoinController extends Controller
             });
 
             $grid->disableCreateButton();
+            $grid->actions(function ($actions) {
+                $actions->disableDelete();
+                $actions->disableEdit();
+            });
         });
     }
 }

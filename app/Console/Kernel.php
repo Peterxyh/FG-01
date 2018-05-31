@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Console\Commands\Odds163::class,
+        \App\Console\Commands\Pinnacle::class,
+        \App\Console\Commands\GuessTime::class,
     ];
 
     /**
@@ -24,7 +25,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('odds163:update')->everyFiveMinutes();
+        $schedule->command('guess:odds-pinnacle')->everyFiveMinutes();
+        $schedule->command('guess:status-update')->everyFiveMinutes();
     }
 
     /**

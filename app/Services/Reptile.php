@@ -7,7 +7,7 @@ namespace App\Services;
  * Time: 17:53
  */
 
-use Goutte;
+use GuzzleHttp\Client;
 
 class Reptile
 {
@@ -29,10 +29,14 @@ class Reptile
      */
     public function request()
     {
-        // return Goutte::request($this->_method, $this->_targetUrl);
-        $s = file_get_contents($this->_targetUrl);
-        preg_match_all("/Core\.pageData\('match[\s\S]*\]\]\}\}\);/", $s, $m);
+        $http = new Client();
+        $response = $http->get($this->_targetUrl);
 
-        print_r($m);
+        if ($response)
+        {
+            return \GuzzleHttp\json_decode($response, true);
+        }
+
+        return false;
     }
 }

@@ -22,13 +22,17 @@ class CreateGuessTable extends Migration
             $table->float('odds_one')->default(0);
             $table->float('odds_two')->default(0);
             $table->float('odds_draw')->default(0);
+            $table->string('event_id', 100);
+            $table->integer('platform')->default(1);
             $table->tinyInteger('result')->nullable();
             $table->tinyInteger('status')->default(0);
+            $table->timestamp('game_time');
             $table->timestamps();
 
             $table->index('category_id');
             $table->index('result');
             $table->index('status');
+            $table->unique(['event_id', 'platform']);
         });
     }
 

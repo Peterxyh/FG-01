@@ -31,10 +31,10 @@ class Guess extends Model
     {
         $_status = [
             self::GUESS_STATUS_STARTING => 'Not begin',
+            self::GUESS_STATUS_STARTED  => 'Started',
             self::GUESS_STATUS_ONE      => 'Win One Team',
             self::GUESS_STATUS_TWO      => 'Win Two Team',
             self::GUESS_STATUS_THR      => 'Win-win',
-            self::GUESS_STATUS_STARTED  => 'Started',
         ];
 
         if (!is_null($status)) return $_status[$status];

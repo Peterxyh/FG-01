@@ -43,6 +43,8 @@ class CategoryController extends Controller
                     $form->select('parent_id', trans('admin.parent_id'))->options(Category::selectOptions());
                     $form->text('title', trans('admin.title'))->rules('required');
                     $form->image('image', 'Images')->uniqueName()->removable();
+                    $form->text('origin_id', 'Origin Id');
+                    $form->url('url', 'Origin Url');
                     $form->hidden('_token')->default(csrf_token());
 
                     $column->append((new Box(trans('admin.new'), $form))->style('success'));
@@ -108,6 +110,8 @@ class CategoryController extends Controller
             $form->text('title', trans('admin.title'))->rules('required');
             $form->image('image', 'Images')->uniqueName()->removable();
             $form->switch('status', '状态')->default(1);
+            $form->text('origin_id', 'Origin Id');
+            $form->url('url', 'Origin Url');
             $form->display('created_at', trans('admin.created_at'));
             $form->display('updated_at', trans('admin.updated_at'));
         });

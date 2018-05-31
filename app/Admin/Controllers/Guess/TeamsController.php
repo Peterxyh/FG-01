@@ -78,6 +78,7 @@ class TeamsController extends Controller
         return Admin::form(Teams::class, function (Form $form) {
             $form->display('id', 'ID');
             $form->text('team_name', 'Team name');
+            $form->text('team_name_cn', 'Team name(CN)');
             $form->select('category_id', 'Category')->options(Category::where('status', 1)->pluck('title', 'id'));
             $form->image('image', 'Images')->uniqueName()->removable();
             $form->display('created_at', trans('admin.created_at'));

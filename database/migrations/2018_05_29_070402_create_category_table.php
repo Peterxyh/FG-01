@@ -19,6 +19,8 @@ class CreateCategoryTable extends Migration
             $table->string('title', 255);
             $table->string('image', 255)->nullable();
             $table->integer('order')->default(0);
+            $table->integer('origin_id')->nullable();
+            $table->string('url')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
 

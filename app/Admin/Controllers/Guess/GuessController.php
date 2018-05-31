@@ -89,6 +89,9 @@ class GuessController extends Controller
 
             $form->number('odds_draw', 'Draw Odds');
 
+            $form->display('event_id', 'Event Id');
+            $form->datetime('game_time', 'Game Time');
+
             $form->display('result', 'Result');
 
             $form->select('status', 'Status')->options(Guess::getStatus());
@@ -124,16 +127,18 @@ class GuessController extends Controller
             $grid->status('Status')->display(function ($status) {
                 $_colors = 'error';
                 if ($status == Guess::GUESS_STATUS_STARTING)
-                    $_colors = 'warning';
-                elseif ($status == Guess::GUESS_STATUS_STARTED)
                     $_colors = 'success';
+                elseif ($status == Guess::GUESS_STATUS_STARTED)
+                    $_colors = 'warning';
                 return '<span class="label label-'.$_colors.'">'.Guess::getStatus($status).'</span>';
             });
 
+            $grid->game_time('Game Times')->sortable();
             $grid->created_at('Create At')->sortable();
             $grid->updated_at('Update At')->sortable();
 
             $grid->filter(function ($filter) {
+                $filter->like('categorys.title', 'Category');
                 $filter->like('game_name', 'Games name');
             });
         });
