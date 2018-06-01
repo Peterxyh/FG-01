@@ -16,5 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+// Gamesdeal Login
+Route::any('/login/gameseal', 'Auth\GamesdealController@login');
 
 Route::get('/home', 'HomeController@index')->name('home');
