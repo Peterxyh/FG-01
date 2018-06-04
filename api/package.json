@@ -1,0 +1,11 @@
+{
+  "name": "footballguessapi",
+  "version": "1.0.0",
+  "description": "FootballGuessAPI",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "author": "Junmo Lin",
+  "license": "ISC"
+}
